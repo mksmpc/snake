@@ -275,7 +275,6 @@ Apple.prototype.move = function() {
         for (var i = 0; i < snake.segments.length; i++) {
             if (snake.segments[i].equal(this.position)) {
                 appleInSnake = true;
-                console.log('appleInSnake', appleInSnake)
                 break;
             }
         }
@@ -292,7 +291,6 @@ Apple.prototype.move = function() {
 
 // Обработка нажатий клавиш
 document.querySelector("body").onkeydown = function(event) {
-    // console.log(event.keyCode);
     var newDirection = keyActions[event.keyCode];
     if (newDirection !== undefined) {
         snake.setDirection(newDirection);
@@ -302,7 +300,7 @@ document.querySelector("body").onkeydown = function(event) {
 // Обработка нажатий кнопок
 
 // Кнопка сброса
-document.querySelector("#resetButton").onclick = function(event) {
+document.querySelector("#restartButton").onclick = function(event) {
     initializeGame();
 }
 
@@ -312,7 +310,7 @@ document.querySelector("#settingsButton").onclick = function(event) {
     settingsForm.classList.toggle("hidden");
 }
 
-function hideSettings () {
+function hideSettings() {
     settingsForm.classList.add("hidden");
 }
 
@@ -321,27 +319,28 @@ document.querySelector("#saveSettingsButton").onclick = function(event) {
     initialSpeed = settingsForm.elements.initialSpeed.value;
     speedIncreaseStep = settingsForm.elements.speedIncreaseStep.value;
     applesToNextSpeed = settingsForm.elements.applesToNextSpeed.value;
-    console.log(event);
 
-    initializeGame();
+    hideSettings();
 
     event.preventDefault();
 }
 
-var startButton = document.querySelector("#resetButton");
-var controlButtons = document.querySelector("#controlButtons");
-//Start(Reset) button
+var startButton = document.querySelector("#restartButton");
+var bodyElement = document.querySelector("body");
+
+
+//Start(Restart) button
 startButton.ontouchend = function(event) {
-    controlButtons.classList.remove("hidden");
-    startBtnToReset();
+    bodyElement.classList.add("touch");
+    startBtnToRestart();
 }
 startButton.onclick = function(event) {
-    startBtnToReset();
+    startBtnToRestart();
 }
 
-function startBtnToReset() {
+function startBtnToRestart() {
     startButton.classList.remove("start");
-    startButton.innerHTML = "Reset Game";
+    startButton.innerHTML = "Restart Game";
     initializeGame();
 }
 
@@ -366,7 +365,6 @@ disableSelection(allButtons);
 
 function disableSelection(elements) {
     elements.forEach(function() {
-        console.log(this);
         this.onselectstart = function() {
             return false;
         };

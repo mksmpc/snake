@@ -1,115 +1,196 @@
-html {
-    width: 100vw;
+html
+{
     overflow-x: hidden;
+
+    width: 100vw;
 }
 
-body {
-    max-width: 400px;
-    margin: 0 auto;
+body
+{
     position: relative;
+
+    max-width: 400px;
+    margin: 5px auto 0;
 }
 
-.hidden {
+.hidden
+{
     display: none !important;
 }
 
-#canvas {
-
-    margin: 5px auto;
+#canvas
+{
     width: 100%;
+    margin: 5px auto;
 }
 
 
-.button {
-    border: none;
-    width: 100%;
-    display: block;
-    cursor: pointer;
-    background-color: #d43;
+.button
+{
     font: bold 1.1em arial;
-    text-align: center;
+
+    display: block;
+
+    width: 100%;
     margin: 5px auto;
     padding: 20px 0;
+
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+    text-align: center;
+
     color: #fff;
-
-    -moz-user-select: none;\
-        -webkit-user-select : none;
+    border: none;
+    background-color: #d43;
 }
 
-.button:active {
-    position: relative;
-    bottom: -2px;
-    left: 2px;
-    -moz-user-select: none;\
-    -webkit-user-select : none;
+.button:active
+{
+    -webkit-user-select: none;
+       -moz-user-select: none;
+    transform: translateY(2px);
 }
 
-#settingsForm {
-    font: bold 0.9em arial;
-    background-color: #adf;
-    display: block;
+#settingsForm
+{
+    font: bold .9em arial;
+
     position: absolute;
     top: 20px;
-    padding: 25px 15px;
-    text-align: center;
+
+    display: block;
+
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
     width: 100%;
     margin: 5px auto;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    padding: 25px 15px;
+
+    text-align: center;
+
+    background-color: #adf;
+    -webkit-box-shadow: 10px 10px #ccc;
+            box-shadow: 0 6px 5px 4px #777;
 }
 
-#settingsForm label {
-    text-align: left;
+#settingsForm label
+{
     display: inline-block;
+
     width: 60%;
-    margin-bottom: 5px;
     height: 25px;
+    margin-bottom: 5px;
     padding-top: 8px;
+
+    text-align: left;
     vertical-align: middle;
 }
 
-#settingsForm input {
+#settingsForm input
+{
     display: inline-block;
-    height: 30px;
+
     width: 30%;
+    height: 30px;
     margin-bottom: 10px;
 }
 
-#saveSettingsButton {
+#saveSettingsButton
+{
     background-color: #3c5;
 }
 
-#controlButtons {
+#controlButtons
+{
     position: relative;
+
+    display: none;
+
     width: auto;
+    margin: 10px auto;
+
     text-align: center;
     vertical-align: middle;
-    margin-bottom: 20px;
 }
 
-#controlButtons .button {
-    background-color: #48e;
-    display: inline-block;
-    width: 75px;
-    height: 75px;
-    margin: 10px;
-    padding: 0;
+#controlButtons .button
+{
     font-size: 2em;
     line-height: 75px;
+
+    display: inline-block;
+
+    width: 90px;
+    height: 90px;
+    margin: -10px;
+    padding: 0;
+
     border-radius: 50%;
+    background-color: #48e;
 }
 
-#controlButtons .button:active {
+#controlButtons .button:active
+{
     background-color: #35a;
-    bottom: 0;
-    left: 0;
 }
 
-#controlButtons #buttonBlank {
+#controlButtons #buttonBlank
+{
     visibility: hidden;
 }
 
-#resetButton.start {
+#restartButton
+{
     background-color: #3d6;
+}
+
+#restartButton.start
+{
+    font-size: 3em;
+    line-height: 200px;
+
+    position: absolute;
+    top: 14px;
+
+    height: 200px;
+
+    vertical-align: middle;
+}
+
+.touch {
+    margin-top: 10px;
+    padding-top: 5px;
+}
+
+.touch #controlButtons
+{
+    display: block;
+}
+
+.touch #restartButton
+{
+    font-size: .8em;
+
+    position: absolute;
+    top: 0;
+    right: 40%;
+
+    width: 30%;
+    margin: 0;
+    padding: 3px;
+}
+
+.touch #settingsButton
+{
+    font-size: .8em;
+
+    position: absolute;
+    top: 0;
+    right: 2%;
+
+    width: 30%;
+    margin: 0;
+    padding: 3px;
 }
